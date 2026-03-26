@@ -25,12 +25,6 @@ class GroupEstimate:
 
         self.group_values = grouped.to_dict()
 
-        # Compute default fallback value (overall mean/median)
-        if self.estimate == "mean":
-            self.default_value = y_series.mean()
-        else:
-            self.default_value = y_series.median()
-
     def predict(self, X_):
         X_df = pd.DataFrame(X_)
         predictions = []
