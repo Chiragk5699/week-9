@@ -26,7 +26,7 @@ class GroupEstimate:
             grouped = df.groupby(list(X_df.columns))["target"].median()
             self.default_value = y_series.median()
 
-        # 🔑 ALWAYS store keys as tuples
+        # ALWAYS store keys as tuples
         self.group_values = grouped.to_dict()
 
     def predict(self, X_):
@@ -34,7 +34,7 @@ class GroupEstimate:
         predictions = []
 
         for _, row in X_df.iterrows():
-            # 🔑 ALWAYS use tuple key
+            # ALWAYS use tuple key
             key = tuple(row.values)
 
             value = self.group_values.get(key, np.nan)
